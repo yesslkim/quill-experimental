@@ -31,9 +31,18 @@
     };
 
     onClick('#link-button', () => {
-      const value = prompt('Enter link URL');
+      const value = { url: 'test.com', target: '_self' };
       quill.format('link', value);
     });
+
+    // onClick('#video-button', () => {
+    //   let range = quill.getSelection(true);
+    //   quill.insertText(range.index, '\n', Quill.sources.USER);
+    //   let url = 'https://www.youtube.com/embed/QHH3iSeDBLo?showinfo=0';
+    //   quill.insertEmbed(range.index + 1, 'video', url, Quill.sources.USER);
+    //   quill.formatText(range.index + 1, 1, { height: '170', width: '400' });
+    //   quill.setSelection(range.index + 2, Quill.sources.SILENT);
+    // });
 
   </script>
 </body>
