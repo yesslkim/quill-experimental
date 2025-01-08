@@ -79,6 +79,14 @@
       //quill.format('link', value);
     });
 
+    onClick('.link-group .btn-cancel', () => {
+      document.querySelector('.popup').classList.remove('active');
+    })
+
+    onClick('.link-group .btn-confirm', () => {
+      document.querySelector('.popup').classList.remove('active');
+    })
+
     // onClick('#video-button', () => {
     //   let range = quill.getSelection(true);
     //   quill.insertText(range.index, '\n', Quill.sources.USER);
