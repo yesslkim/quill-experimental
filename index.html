@@ -7,12 +7,55 @@
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
   <title>Document</title>
+  <style>
+    .link-group {
+      position: relative;
+    }
+
+    .popup {
+      display: none;
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      z-index: 222;
+    }
+
+    .popup.active {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
 
 
-  <button id="link-button">링크버튼</button>
+  <div class="link-group">
+    <button id="link-button">링크버튼</button>
+    <div class="popup">
+      <h2>링크를 입력해 주세요</h2>
+      <label for="link-url">URL:</label>
+      <input type="text" id="link-url">
+      <div>
+        <strong>target</strong>
+        <div>
+          <input type="radio" id="link-blank" name="target" value="_blank" checked />
+          <label for="link-blank">_blank</label>
+        </div>
+
+        <div>
+          <input type="radio" id="link-self" name="target" value="_self" />
+          <label for="link-self">_self</label>
+        </div>
+        <div>
+          <button type="button" class="btn-cancel">취소</button>
+          <button type="button" class="btn-confirm">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div id="editor">
     <h2>Demo Content</h2>
@@ -31,8 +74,9 @@
     };
 
     onClick('#link-button', () => {
-      const value = { url: 'test.com', target: '_self' };
-      quill.format('link', value);
+      document.querySelector('.popup').classList.add('active');
+      //const value = { url: 'test.com', target: '_self' };
+      //quill.format('link', value);
     });
 
     // onClick('#video-button', () => {
